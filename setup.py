@@ -7,7 +7,7 @@ with open("README.md", "r") as f:
 setup(
     name='finnhub',
     version='0.1.1',
-    author='s0h3ck',
+    author='',
     author_email='s0h3ck@gmail.com',
     description='Finnhub API Python client',
     long_description=long_description,
