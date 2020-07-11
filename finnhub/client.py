@@ -129,7 +129,7 @@ class Client:
         return self._get("news", data=params)
 
     def company_news(self, symbol):
-        return self._get("news/{}".format(symbol))
+        return self._get("company-news/{}".format(symbol))
 
     def news_sentiment(self, **params):
         return self._get("news-sentiment", data=params)
