@@ -1,18 +1,34 @@
+# import os
 from finnhub import client as Finnhub
 
-client = Finnhub.Client(api_key="**************")
+# key = os.environ("FINNHUB_KEY")
+# client = Finnhub.Client(api_key="key")
+client = Finnhub.Client(api_key="***********")
 
 # Get real-time update on the number of COVID-19 (Coronavirus) cases in the US
 # worked
 print(client.covid())
 
-# # Get general information of a company 
+# Get general information of a company 
 # worked
 print(client.company_profile(symbol="NFLX"))
 
-# # Get latest company's CEO compensation
-# not worked
+# Get company's free-version profile
+# added, worked
+print(client.company_profile2(symbol="NFLX"))
+
+# Get major development
+# added, worked
+print(client.major_dev(symbol="NFLX"))
+print(client.major_dev(symbol="NFLX", resolution="D", **{'from':'1575968404', 'to': '1575968424'}))
+
+# Get latest company's CEO compensation
+# not worked, isn't listed in API
 # print(client.ceo_compensation(symbol="NFLX"))
+
+# Get a list of company's executives and members of the Board.
+# added, worked
+print(client.company_executive(symbol="NFLX"))
 
 # # Get latest analyst recommendation trends
 # worked 
@@ -34,12 +50,16 @@ print(client.option_chain(symbol="NFLX"))
 #  worked 
 print(client.peers(symbol="NFLX"))
 
+# #Get company basic financials
+# added
+print(client.basic_financials(symbol="NFLX"))
+
 # # Get company quarterly earnings
 #  worked 
 print(client.earnings(symbol="NFLX"))
 
 # # List supported stock exchanges
-#  not worked 
+#  not worked, not listed in API
 # print(client.exchange())
 
 # # List supported stocks
@@ -71,7 +91,11 @@ print(client.forex_symbol(exchange="oanda"))
 # worked
 print(client.forex_candle(symbol="OANDA:EUR_USD", resolution="D", count=200))
 
-# # List supported crypto symbols by exchange\
+# # List supported crypto symbols by exchange
+# added, worked
+print(client.crypto_exchange())
+
+# # List supported crypto symbols by exchange
 # worked
 print(client.crypto_symbol(exchange="binance"))
 
@@ -96,8 +120,8 @@ print(client.scan_technical_indicator(symbol="NFLX", resolution="D"))
 print(client.news(category="general"))
 
 # # List latest company news by symbol
-# not worked
-# print(client.company_news(symbol="NFLX"))
+# worked
+print(client.company_news(symbol="NFLX"))
 
 # # Get company's news sentiment and statistics
 # worked
@@ -132,5 +156,5 @@ print(client.calendar_earnings())
 print(client.calendar_ipo())
 
 # # Get recent and coming ICO
-# not worked
+# not worked, not listed in the API
 # print(client.calendar_ico())

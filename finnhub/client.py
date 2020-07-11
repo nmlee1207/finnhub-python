@@ -62,8 +62,15 @@ class Client:
     def company_profile(self, **params):
         return self._get("stock/profile", data=params)
 
-    def ceo_compensation(self, **params):
-        return self._get("stock/ceo-compensation", data=params)
+    def company_profile2(self, **params):
+        return self._get("stock/profile2", data=params)
+
+    def major_dev(self, **params):
+        return self._get("major-development", data=params)
+    # def ceo_compensation(self, **params):
+    #     return self._get("stock/ceo-compensation", data=params)
+    def company_executive(self, **params):
+        return self._get("stock/executive", data=params)
 
     def recommendation(self, **params):
         return self._get("stock/recommendation", data=params)
@@ -79,6 +86,9 @@ class Client:
 
     def peers(self, **params):
         return self._get("stock/peers", data=params)
+    
+    def basic_financials(self, **params):
+        return self._get("stock/metric", data=params)
 
     def earnings(self, **params):
         return self._get("stock/earnings", data=params)
@@ -128,8 +138,9 @@ class Client:
     def news(self, **params):
         return self._get("news", data=params)
 
-    def company_news(self, symbol):
-        return self._get("company-news/{}".format(symbol))
+    def company_news(self, **params):
+        # return self._get("company-news/{}".format(symbol))
+        return self._get("company-news", data=params)
 
     def news_sentiment(self, **params):
         return self._get("news-sentiment", data=params)
